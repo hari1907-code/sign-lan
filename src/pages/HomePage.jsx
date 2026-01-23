@@ -1,5 +1,6 @@
 
 const HomePage  = (props) =>{
+const [num, setNum] = useState(1);
 
     return(
         <>
