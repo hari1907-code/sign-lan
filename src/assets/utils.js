@@ -1,1 +1,1 @@
-// TODO: ID GENERATOR
+export const goto = (path) => window.location.href = path

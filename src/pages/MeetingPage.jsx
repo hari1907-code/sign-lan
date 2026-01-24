@@ -1,37 +1,38 @@
-import { Mic,Video,ClosedCaption,Phone } from "lucide-react"
-import Meet from "../components/MeetingNavbut"   
-import ChatBox from "../components/ChatBox"
-import Camerae from "../components/Camera"
+import { ClosedCaptionIcon, MicIcon, PhoneIcon, VideoIcon } from "lucide-react"
 import { useRef } from "react"
-const MeetingPage  = () =>{
+import Camerae from "../components/Camera"
+import ChatBox from "../components/ChatBox"
+import Meet from "../components/MeetingNavbut"
+import { Navigate } from "react-router"
+import { goto } from "../assets/utils"
+const MeetingPage = () => {
 
-   const cameraRef = useRef(null);
+    const cameraRef = useRef(null)
 
-    return(
+    return (
         <>
-        <div className="navbar h-20 max-w-full flex items-center justify-center  ">
-            <div className="navbar-center">
-                <Meet inField = {<Video />} color = "primary" onClick={() => cameraRef.current.toggleCamera()}/>
-                <Meet inField = {<Mic />} color = "accent-content"/>
-                <Meet inField = {<ClosedCaption />} color = "accent-content"/>
-                <Meet inField = {<Phone />} color = "accent-content" onClick={() => navigate("/")}/>
-                
-            </div>
-        </div>
-        <div className="card card-side bg-base-100 shadow-sm flex items-center h-[500px] max-w-full">
-            
-                <div className="h-[490px] px-4">
+            <div className="bg-base-200 p-4 h-screen">
+
+                <div className="navbar h-8 max-w-full flex items-center justify-center bg-base-100 shadow-xl mb-5 rounded-2xl   ">
+                    <div className="navbar-center">
+                        <Meet inField={<VideoIcon />} color="primary" onClick={() => cameraRef.current.toggleCamera()} />
+                        <Meet inField={<MicIcon />} color="accent-content" />
+                        <Meet inField={<ClosedCaptionIcon />} color="accent-content" />
+                        <Meet inField={<PhoneIcon />} color="accent-content" onClick={() => goto('/')} />
+
+                    </div>
+                </div>
+
+                <div className="flex items-center gap-2 p-4 mb-4  shadow-lg rounded-2xl bg-base-100">
+
                     <Camerae ref={cameraRef} />
                 </div>
-            
-            <div className="card-body">
-               
+
+                <div className="flex items-center gap-2  shadow-lg  rounded-2xl bg-base-100">
+                    <ChatBox />
+                </div>
+
             </div>
-        </div> /* Video Box */
-        <div>
-            <ChatBox />
-        </div>
-            
         </>
     )
 }
