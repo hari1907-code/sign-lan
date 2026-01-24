@@ -27,8 +27,13 @@ const MeetingPage = () => {
                     <Camerae ref={cameraRef} />
                 </div>
 
-                <div className="flex items-center gap-2  shadow-lg  rounded-2xl bg-base-100">
-                    <ChatBox />
+                <div className="flex flex-row items-center gap-2 p-2 shadow-lg  rounded-2xl bg-base-100">
+                    <div className="flex flex-col-reverse justify-center p-4 basis-1/3 bg-amber-200">
+                        <ChatBox />
+                    </div>
+                    <div className="flex flex-row p-4 basis-2/3 bg-amber-200">
+                        {/* Meeting Info  */}
+                    </div>
                 </div>
 
             </div>
