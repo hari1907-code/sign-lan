@@ -1,4 +1,4 @@
-import { Mic,Video,ClosedCaption } from "lucide-react"
+import { Mic,Video,ClosedCaption,Phone } from "lucide-react"
 import Meet from "../components/MeetingNavbut"   
 import ChatBox from "../components/ChatBox"
 import Camerae from "../components/Camera"
@@ -14,11 +14,13 @@ const MeetingPage  = () =>{
                 <Meet inField = {<Video />} color = "primary" onClick={() => cameraRef.current.toggleCamera()}/>
                 <Meet inField = {<Mic />} color = "accent-content"/>
                 <Meet inField = {<ClosedCaption />} color = "accent-content"/>
+                <Meet inField = {<Phone />} color = "accent-content" onClick={() => navigate("/")}/>
+                
             </div>
         </div>
         <div className="card card-side bg-base-100 shadow-sm flex items-center h-[500px] max-w-full">
             
-                <div className="h-[490px]">
+                <div className="h-[490px] px-4">
                     <Camerae ref={cameraRef} />
                 </div>
             
