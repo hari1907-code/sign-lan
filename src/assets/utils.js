@@ -1,1 +1,2 @@
+
 export const goto = (path) => window.location.href = path

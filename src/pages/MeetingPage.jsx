@@ -19,7 +19,6 @@ const MeetingPage = () => {
                         <Meet inField={<MicIcon />} color="accent-content" />
                         <Meet inField={<ClosedCaptionIcon />} color="accent-content" />
                         <Meet inField={<PhoneIcon />} color="accent-content" onClick={() => goto('/')} />
-
                     </div>
                 </div>
 
