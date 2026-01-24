@@ -1,5 +1,6 @@
 import { Mic } from "lucide-react"
 import Meet from "../components/MeetingNavbut"   
+import ChatBox from "../components/ChatBox"
 
 const MeetingPage  = () =>{
 
@@ -11,6 +12,11 @@ const MeetingPage  = () =>{
                 <Meet inField = {<Mic />} color = "neutral-content"/>
                 <Meet inField = {<Camera />} color = "neutral-content"/>
             </div>
+            <div></div> /* Video Box */
+            <div>
+                <ChatBox />
+            </div>
+            
         </div>
         </>
     )
