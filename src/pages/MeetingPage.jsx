@@ -9,7 +9,7 @@ const MeetingPage  = () =>{
 
     return(
         <>
-        <div className="navbar h-[75px] max-w-full flex items-center justify-center  ">
+        <div className="navbar h-20 max-w-full flex items-center justify-center  ">
             <div className="navbar-center">
                 <Meet inField = {<Video />} color = "primary" onClick={() => cameraRef.current.toggleCamera()}/>
                 <Meet inField = {<Mic />} color = "accent-content"/>
