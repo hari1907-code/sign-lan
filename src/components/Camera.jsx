@@ -1,39 +1,44 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, forwardRef, useImperativeHandle } from "react";
 
-function Camerae({ onToggle }) {
+const Camerae = forwardRef((props, ref) => {
   const videoRef = useRef(null);
+  let streamRef = useRef(null);
 
   useEffect(() => {
-    let stream;
-
     async function startCamera() {
-      stream = await navigator.mediaDevices.getUserMedia({
-        video: true,
-        audio: false,
-      });
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: true,
+          audio: false,
+        });
 
-      videoRef.current.srcObject = stream;
+        streamRef.current = stream;
+        videoRef.current.srcObject = stream;
+      } catch (error) {
+        alert("Please allow camera access");
+      }
     }
 
     startCamera();
 
     return () => {
-      if (stream) {
-        stream.getTracks().forEach(track => track.stop());
+      if (streamRef.current) {
+        streamRef.current.getTracks().forEach(track => track.stop());
       }
     };
   }, []);
 
   const toggleCamera = () => {
-    const stream = videoRef.current.srcObject;
-    const videoTrack = stream.getVideoTracks()[0];
-    videoTrack.enabled = !videoTrack.enabled;
+    const videoTrack = streamRef.current?.getVideoTracks()[0];
+    if (videoTrack) {
+      videoTrack.enabled = !videoTrack.enabled;
+    }
   };
 
-  // 🔥 Pass function to parent
-  useEffect(() => {
-    if (onToggle) onToggle(() => toggleCamera);
-  }, []);
+  // 🔥 Expose function to parent
+  useImperativeHandle(ref, () => ({
+    toggleCamera,
+  }));
 
   return (
     <video
@@ -43,6 +48,6 @@ function Camerae({ onToggle }) {
       className="rounded-4xl"
     />
   );
-}
+});
 
 export default Camerae;
