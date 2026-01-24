@@ -1,9 +1,10 @@
 @import 'tailwindcss';
+@plugin "daisyui";
 
 @plugin "daisyui/theme" {
   name: "emerald";
-  default: false;
-  prefersdark: false;
+  default: true;
+  prefersdark: true;
   color-scheme: "light";
   --color-base-100: oklch(100% 0 0);
   --color-base-200: oklch(93% 0 0);
