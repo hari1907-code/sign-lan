@@ -3,11 +3,15 @@ import { useRef } from "react"
 import Camerae from "../components/Camera"
 import ChatBox from "../components/ChatBox"
 import Meet from "../components/MeetingNavbut"
-import { Navigate } from "react-router"
+import { Navigate, useParams } from "react-router"
 import { goto } from "../assets/utils"
 const MeetingPage = () => {
 
-    const cameraRef = useRef(null)
+    const cameraRef = useRef([])
+    let { id } = useParams()
+
+    let participantCount = parseInt(localStorage.getItem(id))
+
 
     return (
         <>
@@ -23,8 +27,7 @@ const MeetingPage = () => {
                 </div>
 
                 <div className="flex items-center gap-2 p-4 mb-4  shadow-lg rounded-2xl bg-base-100">
-
-                    <Camerae ref={cameraRef} />
+                    {[...Array(participantCount)].map((_, i) => <Camerae key={i} ref={(ref) => cameraRef.current[i] = ref} />)}
                 </div>
 
                 <div className="flex flex-row items-center gap-2 p-2 shadow-lg  rounded-2xl bg-base-100">
