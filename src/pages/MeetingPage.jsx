@@ -6,16 +6,26 @@ const MeetingPage  = () =>{
 
     return(
         <>
-        <h1>Meeting Page</h1>
-        <div className="navbar bg-base-300">
+        <div className="navbar h-[75px] max-w-full flex items-center justify-center  ">
             <div className="navbar-center">
                 <Meet inField = {<Video />} color = "neutral-content"/>
                 <Meet inField = {<Mic />} color = "neutral-content"/>
                 <Meet inField = {<Camera />} color = "neutral-content"/>
             </div>
         </div>
-        <div className="card card-side bg-base-100 shadow-sm">
-            
+        <div className="card card-side bg-base-100 shadow-sm flex items-center justify-center ">
+            <figure>
+                <div className="">
+                    
+                </div>
+            </figure>
+            <div className="card-body">
+                <h2 className="card-title">New movie is released!</h2>
+                <p>Click the button to watch on Jetflix app.</p>
+                <div className="card-actions justify-end">
+                <button className="btn btn-primary">Watch</button>
+                </div>
+            </div>
         </div> /* Video Box */
         <div>
             <ChatBox />
