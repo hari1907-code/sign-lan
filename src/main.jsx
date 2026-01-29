@@ -8,12 +8,12 @@ import MeetingPage from './pages/MeetingPage'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<HomePage />} />
-      <Route path='/meeting' element={<MeetingPage />} />
-      
-    </Routes>
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/meeting/:id' element={<MeetingPage />} />
+
+      </Routes>
     </BrowserRouter>
 
-   </StrictMode>,
+  </StrictMode>,
 )

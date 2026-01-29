@@ -2,9 +2,9 @@ const TitleBox  = (props) =>{
 
     return(
         <>
-            <div>
-                <h3 className="text-xl">Name</h3>
-                <h1 className="text-2xl">Text</h1>
+            <div className="flex flex-col m-1 bg-amber-900  p-4">
+                <h3 className="text-sm">Name1</h3>
+                <h1 className="text-2xl">Text1</h1>
             </div>
         </>
     )

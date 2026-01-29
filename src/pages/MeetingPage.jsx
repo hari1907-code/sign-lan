@@ -3,11 +3,15 @@ import { useRef } from "react"
 import Camerae from "../components/Camera"
 import ChatBox from "../components/ChatBox"
 import Meet from "../components/MeetingNavbut"
-import { Navigate } from "react-router"
+import { Navigate, useParams } from "react-router"
 import { goto } from "../assets/utils"
 const MeetingPage = () => {
 
-    const cameraRef = useRef(null)
+    const cameraRef = useRef([])
+    let { id } = useParams()
+
+    let participantCount = parseInt(localStorage.getItem(id))
+
 
     return (
         <>
@@ -19,18 +23,20 @@ const MeetingPage = () => {
                         <Meet inField={<MicIcon />} color="accent-content" />
                         <Meet inField={<ClosedCaptionIcon />} color="accent-content" />
                         <Meet inField={<PhoneIcon />} color="accent-content" onClick={() => goto('/')} />
-
                     </div>
                 </div>
 
                 <div className="flex items-center gap-2 p-4 mb-4  shadow-lg rounded-2xl bg-base-100">
-
-                    <Camerae ref={cameraRef} />
-                   
+                    {[...Array(participantCount)].map((_, i) => <Camerae key={i} ref={(ref) => cameraRef.current[i] = ref} />)}
                 </div>
 
-                <div className="flex items-center gap-2  shadow-lg  rounded-2xl bg-base-100">
-                    <ChatBox />
+                <div className="flex flex-row items-center gap-2 p-2 shadow-lg  rounded-2xl bg-base-100">
+                    <div className="flex flex-col-reverse justify-center p-4 basis-1/3 bg-amber-200">
+                        <ChatBox />
+                    </div>
+                    <div className="flex flex-row p-4 basis-2/3 bg-amber-200">
+                        {/* Meeting Info  */}
+                    </div>
                 </div>
 
             </div>
