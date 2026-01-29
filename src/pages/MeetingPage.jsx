@@ -26,6 +26,7 @@ const MeetingPage = () => {
                 <div className="flex items-center gap-2 p-4 mb-4  shadow-lg rounded-2xl bg-base-100">
 
                     <Camerae ref={cameraRef} />
+                   
                 </div>
 
                 <div className="flex items-center gap-2  shadow-lg  rounded-2xl bg-base-100">

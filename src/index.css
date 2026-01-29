@@ -1,10 +1,5 @@
 @import 'tailwindcss';
-<<<<<<< HEAD
 @plugin 'daisyui';
-=======
-@plugin "daisyui";
-
->>>>>>> f19ce08bee26b9ee9051f3041c2e1d1eae8bf445
 @plugin "daisyui/theme" {
   name: "emerald";
   default: true;
