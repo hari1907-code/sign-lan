@@ -34,7 +34,7 @@ const MeetingPage = () => {
                     <div className="flex flex-col-reverse justify-center p-4 basis-1/3 bg-amber-200">
                         <ChatBox />
                     </div>
-                    <div className="flex flex-row p-4 basis-2/3 bg-amber-200">
+                    <div className="flex flex-row p-4 basis-2/3">
                         {/* Meeting Info  */}
                     </div>
                 </div>
