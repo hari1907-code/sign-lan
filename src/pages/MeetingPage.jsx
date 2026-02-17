@@ -26,7 +26,7 @@ const MeetingPage = () => {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2 p-4 mb-4  shadow-lg rounded-2xl bg-base-100">
+                <div className=" h-125 flex items-center gap-2 p-4 mb-4  shadow-lg rounded-2xl bg-base-100">
                     {[...Array(participantCount)].map((_, i) => <Camerae key={i} ref={(ref) => cameraRef.current[i] = ref} />)}
                 </div>
 
