@@ -16,9 +16,9 @@ const MeetingPage = () => {
 
     const content = {
         1: "Hello",
-        2: "Subtitle content for Button 2",
-        3: "Subtitle content for Button 3",
-        4: "Subtitle content for Button 4",
+        2: "home",
+        3: "welcome",
+        4: "victory",
         5: "Subtitle content for Button 5"
     };
 
