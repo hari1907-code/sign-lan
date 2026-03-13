@@ -30,7 +30,7 @@ const HomePage = () => {
                     <div className="flex flex-col items-center p-4 border-r-2">
                         <h1 className="font-bold text-2xl m-4">Host</h1>
                         <div className="flex gap-2">
-                            <p className="mt-2 p">Meeting code: <span className="border-secondary border-dashed border-1 p-2 rounded-md">{otp}</span></p>
+                            <p className="mt-2 p">Meeting code: <span className="border-secondary border-dashed  p-2 rounded-md">{otp}</span></p>
                             <button onClick={() => setOtp(generateID)} className="btn btn-secondary">↺</button>
                         </div>
                         <br />
