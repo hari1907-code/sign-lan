@@ -27,15 +27,15 @@ const MeetingPage = () => {
 
         setTimeout(() => {
         setMessage(content[num]);
-        }, 5000);
+        }, Math.floor(Math.random() * (6000 - 3000 + 1)) + 3000);
     };
     return (
         <>
             <div className="bg-base-200 p-4 h-screen">
 
-                <div className="navbar h-8 max-w-full flex items-center justify-center bg-base-100 shadow-xl mb-5 rounded-2xl   ">
+                <div className="navbar h-1 max-w-full flex items-center justify-center bg-base-100 shadow-xl mb-5 rounded-2xl   ">
                     <div className="navbar-center">
-                        <Meet inField={<VideoIcon />} color="primary" onClick={() => cameraRef.current.toggleCamera()} />
+                        <Meet inField={<VideoIcon/>} color="primary" onClick={() => cameraRef.current.toggleCamera()} />
                         <Meet inField={<MicIcon />} color="accent-content" />
                         <Meet inField={<ClosedCaptionIcon />} color="accent-content" />
                         <Meet inField={<PhoneIcon />} color="accent-content" onClick={() => goto('/')} />

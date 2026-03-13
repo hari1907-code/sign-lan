@@ -45,7 +45,7 @@ const Camerae = forwardRef((props, ref) => {
       ref={videoRef}
       autoPlay
       playsInline
-      className="rounded-4xl"
+      className="rounded-4xl p-4"
     />
   );
 });
