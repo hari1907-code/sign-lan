@@ -1,5 +1,5 @@
 import { ClosedCaptionIcon, MicIcon, PhoneIcon, VideoIcon } from "lucide-react"
-import { useRef,useState } from "react"
+import { useRef, useState } from "react"
 import Camerae from "../components/Camera"
 import ChatBox from "../components/ChatBox"
 import Meet from "../components/MeetingNavbut"
@@ -26,16 +26,16 @@ const MeetingPage = () => {
         setMessage("Processing..."); // show loading text first
 
         setTimeout(() => {
-        setMessage(content[num]);
+            setMessage(content[num]);
         }, Math.floor(Math.random() * (6000 - 3000 + 1)) + 3000);
     };
     return (
         <>
-            <div className="bg-base-200 p-4 h-screen">
+            <div className="bg-base-200 p-4 h-screen flex flex-col overflow-hidden">
 
                 <div className="navbar h-1 max-w-full flex items-center justify-center bg-base-100 shadow-xl mb-5 rounded-2xl   ">
                     <div className="navbar-center">
-                        <Meet inField={<VideoIcon/>} color="primary" onClick={() => cameraRef.current.toggleCamera()} />
+                        <Meet inField={<VideoIcon />} color="primary" onClick={() => cameraRef.current.toggleCamera()} />
                         <Meet inField={<MicIcon />} color="accent-content" />
                         <Meet inField={<ClosedCaptionIcon />} color="accent-content" onClick={() => setIsOpenCaption(isOpenCaption => !isOpenCaption)} />
                         <Meet inField={<PhoneIcon />} color="accent-content" onClick={() => goto('/')} />
@@ -43,26 +43,34 @@ const MeetingPage = () => {
                     </div>
                 </div>
 
-                <div className=" h-auto flex-1 items-center gap-2 p-4 mb-4  shadow-lg rounded-2xl bg-base-100">
-                    {[...Array(participantCount)].map((_, i) => <Camerae key={i} ref={(ref) => cameraRef.current[i] = ref} />)}
+                <div className=" h-screen gap-4 flex-1 items-center p-4  shadow-lg rounded-2xl bg-base-100">
+                    <div className="flex flex-1 flex-wrap items-center justify-center gap-2 overflow-hidden">
+                        {[...Array(participantCount)].map((_, i) => (
+                            <div key={i} className="flex-1 min-w-[200px] max-h-full">
+                                <Camerae ref={(ref) => cameraRef.current[i] = ref} />
+                            </div>
+                        ))}
+                    </div>
+                    {/* {[...Array(participantCount)].map((_, i) => <Camerae key={i} ref={(ref) => cameraRef.current[i] = ref} />)} */}
+
+                    {/* Caption open when openCaption Icon is clicked */}
+                    {isOpenCaption ? <div className="h-auto flex flex-row items-center gap-2 p-2 shadow-lg rounded-2xl bg-base-100 transition-all">
+                        <div className="h-auto flex flex-col-reverse justify-center p-4 basis-1/3 bg-amber-200">
+                            <ChatBox message={message} />
+                        </div>
+                        <div className="flex flex-row p-4 basis-2/3">
+                            {/* Meeting Info  */}
+                            <Meet inField={1} color="accent-content" onClick={() => changeSubtitle(1)} />
+                            <Meet inField={2} color="accent-content" onClick={() => changeSubtitle(2)} />
+                            <Meet inField={3} color="accent-content" onClick={() => changeSubtitle(3)} />
+                            <Meet inField={4} color="accent-content" onClick={() => changeSubtitle(4)} />
+                            <Meet inField={5} color="accent-content" onClick={() => changeSubtitle(5)} />
+                        </div>
+                    </div> : null}
                 </div>
 
 
-                {/* Caption open when openCaption Icon is clicked */}
-                {isOpenCaption ?  <div className="h-auto flex flex-row items-center gap-2 p-2 shadow-lg  rounded-2xl bg-base-100">
-                    <div className="h-auto flex flex-col-reverse justify-center p-4 basis-1/3 bg-amber-200">
-                        
-                        <ChatBox  message={message} />
-                    </div>
-                    <div className="flex flex-row p-4 basis-2/3">
-                        {/* Meeting Info  */}
-                         <Meet inField={1} color="accent-content" onClick={() => changeSubtitle(1)} />
-                         <Meet inField={2} color="accent-content" onClick={() => changeSubtitle(2)} />
-                         <Meet inField={3} color="accent-content" onClick={() => changeSubtitle(3)} />
-                         <Meet inField={4} color="accent-content" onClick={() => changeSubtitle(4)} />
-                         <Meet inField={5} color="accent-content" onClick={() => changeSubtitle(5)} />
-                    </div>
-                </div> : null}
+
             </div>
         </>
     )
