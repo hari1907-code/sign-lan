@@ -1,5 +1,5 @@
 import { ClosedCaptionIcon, MicIcon, PhoneIcon, VideoIcon } from "lucide-react"
-import { useRef, useState } from "react"
+import { useRef, useState,useEffect} from "react"
 import Camerae from "../components/Camera"
 import ChatBox from "../components/ChatBox"
 import Meet from "../components/MeetingNavbut"
@@ -29,6 +29,41 @@ const MeetingPage = () => {
             setMessage(content[num])
         }, Math.floor(Math.random() * (6000 - 3000 + 1)) + 3000)
     }
+     useEffect(() => {
+
+    const handleKeyDown = (event) => {
+
+      switch (event.key.toLowerCase()) {
+
+        case "m":
+          changeSubtitle(1)
+          break;
+
+        case "v":
+          changeSubtitle(2)
+          break;
+
+        case "c":
+          changeSubtitle(3)
+          break;
+
+        case "e":
+          changeSubtitle(4)
+          break;
+
+        default:
+          break;
+      }
+
+    };
+     window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+
+  }, []);
+
     return (
         <>
             <div className="bg-base-200 p-4 h-screen flex flex-col overflow-hidden">
@@ -50,18 +85,19 @@ const MeetingPage = () => {
 
                 {/* Caption open when openCaption Icon is clicked */}
                 {isOpenCaption && <div className="h-auto flex flex-row items-center gap-2 p-2 shadow-lg rounded-2xl transition-all m-2">
-                    <div className="h-auto flex flex-col-reverse justify-center p-4 basis-1/3 bg-amber-200">
+                    <div className="h-auto flex flex-col-reverse justify-center p-4 basis-1/3 bg-base-300">
                         <ChatBox message={message} />
                     </div>
 
-                    <br /><div className="flex flex-row p-4 basis-2/3">
-                        {/* Meeting Info  */}
+                    
+                    {/* <div className="flex flex-row p-4 basis-2/3">
+                        {/* Meeting Info  }
                         <Meet inField={1} color="base-content text-white" onClick={() => changeSubtitle(1)} />
                         <Meet inField={2} color="base-content text-white" onClick={() => changeSubtitle(2)} />
                         <Meet inField={3} color="base-content text-white" onClick={() => changeSubtitle(3)} />
                         <Meet inField={4} color="base-content text-white" onClick={() => changeSubtitle(4)} />
                         <Meet inField={5} color="base-content text-white" onClick={() => changeSubtitle(5)} />
-                    </div>
+                    </div> */}
                 </div>}
 
 
