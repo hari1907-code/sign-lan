@@ -26,9 +26,9 @@ const HomePage = () => {
     return (
         <>
         <div className="bg-cover bg-center h-screen"
-            style={{ backgroundImage: "url('/bg-image.png')" }} >
-            <div className="navbar bg-indigo-900 text-white">
-                <h4 className="">syn</h4>
+            style={{ backgroundImage: "url('/bgi-image.png')" }} >
+            <div className="navbar bg-base-900 p-8"> 
+                <h1 className="font-bold text-4xl ml-2 text-blue-900">Sycn Meet</h1>
             </div>
             <div className="flex h-124 items-center justify-center">
                 <div className=" bg-base-200 rounded shadow-xl grid grid-cols-2 gap-4">

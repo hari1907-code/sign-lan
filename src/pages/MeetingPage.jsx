@@ -30,24 +30,24 @@ const MeetingPage = () => {
         }, Math.floor(Math.random() * (6000 - 3000 + 1)) + 3000)
     }
      useEffect(() => {
-
+        //when you click on the button 1,2,3,4 the subtitle will change 
     const handleKeyDown = (event) => {
 
       switch (event.key.toLowerCase()) {
 
-        case "m":
+        case "1":
           changeSubtitle(1)
           break;
 
-        case "v":
+        case "2":
           changeSubtitle(2)
           break;
 
-        case "c":
+        case "3":
           changeSubtitle(3)
           break;
 
-        case "e":
+        case "4":
           changeSubtitle(4)
           break;
 
@@ -89,15 +89,8 @@ const MeetingPage = () => {
                         <ChatBox message={message} />
                     </div>
 
-                    
-                    {/* <div className="flex flex-row p-4 basis-2/3">
-                        {/* Meeting Info  }
-                        <Meet inField={1} color="base-content text-white" onClick={() => changeSubtitle(1)} />
-                        <Meet inField={2} color="base-content text-white" onClick={() => changeSubtitle(2)} />
-                        <Meet inField={3} color="base-content text-white" onClick={() => changeSubtitle(3)} />
-                        <Meet inField={4} color="base-content text-white" onClick={() => changeSubtitle(4)} />
-                        <Meet inField={5} color="base-content text-white" onClick={() => changeSubtitle(5)} />
-                    </div> */}
+                
+                   
                 </div>}
 
 
