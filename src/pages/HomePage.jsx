@@ -25,7 +25,12 @@ const HomePage = () => {
 
     return (
         <>
-            <div className="flex h-screen items-center justify-center">
+        <div className="bg-cover bg-center h-screen"
+            style={{ backgroundImage: "url('/bg-image.png')" }} >
+            <div className="navbar bg-indigo-900 text-white">
+                <h4 className="">syn</h4>
+            </div>
+            <div className="flex h-124 items-center justify-center">
                 <div className=" bg-base-200 rounded shadow-xl grid grid-cols-2 gap-4">
                     <div className="flex flex-col items-center p-4 border-r-2">
                         <h1 className="font-bold text-2xl m-4">Host</h1>
@@ -44,6 +49,8 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
+        </div>
+        
 
         </>
     )

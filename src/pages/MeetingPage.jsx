@@ -39,7 +39,6 @@ const MeetingPage = () => {
                         <Meet inField={<MicIcon />} color="accent-content" />
                         <Meet inField={<ClosedCaptionIcon />} color="accent-content" onClick={() => setIsOpenCaption(isOpenCaption => !isOpenCaption)} />
                         <Meet inField={<PhoneIcon />} color="accent-content" onClick={() => goto('/')} />
-                        <Meet inField={1} color="accent-content" onClick={() => changeSubtitle(1)} />
                     </div>
                 </div>
 
@@ -54,13 +53,14 @@ const MeetingPage = () => {
                     <div className="h-auto flex flex-col-reverse justify-center p-4 basis-1/3 bg-amber-200">
                         <ChatBox message={message} />
                     </div>
-                    <div className="flex flex-row p-4 basis-2/3">
+
+                    <br /><div className="flex flex-row p-4 basis-2/3">
                         {/* Meeting Info  */}
-                        <Meet inField={1} color="accent-content" onClick={() => changeSubtitle(1)} />
-                        <Meet inField={2} color="accent-content" onClick={() => changeSubtitle(2)} />
-                        <Meet inField={3} color="accent-content" onClick={() => changeSubtitle(3)} />
-                        <Meet inField={4} color="accent-content" onClick={() => changeSubtitle(4)} />
-                        <Meet inField={5} color="accent-content" onClick={() => changeSubtitle(5)} />
+                        <Meet inField={1} color="base-content text-white" onClick={() => changeSubtitle(1)} />
+                        <Meet inField={2} color="base-content text-white" onClick={() => changeSubtitle(2)} />
+                        <Meet inField={3} color="base-content text-white" onClick={() => changeSubtitle(3)} />
+                        <Meet inField={4} color="base-content text-white" onClick={() => changeSubtitle(4)} />
+                        <Meet inField={5} color="base-content text-white" onClick={() => changeSubtitle(5)} />
                     </div>
                 </div>}
 
